@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Games - Modern Arcade Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- Game Header -->
+        <header class="game-header">
+            <h1 class="game-title">NEON GAMES</h1>
+            <div class="score-container" id="scoreContainer">
+                <div class="score-item">
+                    <span class="score-label">SCORE</span>
+                    <span id="currentScore" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">HIGH SCORE</span>
+                    <span id="highScore" class="score-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Canvas -->
+        <div class="game-container">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            
+            <!-- Game Overlay -->
+            <div id="gameOverlay" class="game-overlay">
+                <div class="overlay-content">
+                    <h2 class="overlay-title">GAME OVER</h2>
+                    <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+                    <div class="button-group">
+                        <button id="restartBtn" class="neon-button">RESTART GAME</button>
+                        <button id="backToMenuFromGameOverBtn" class="neon-button secondary">BACK TO MENU</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Screen -->
+            <div id="startScreen" class="start-screen">
+                <div class="start-content">
+                    <h2 class="start-title">NEON GAMES</h2>
+                    <h3 class="game-subtitle">PONG</h3>
+                    <p class="instructions">
+                        Use <span class="neon-text">MOUSE</span> to control the paddle<br>
+                        or <span class="neon-text">LEFT</span> and <span class="neon-text">RIGHT</span> arrow keys
+                    </p>
+                    <div class="button-group">
+                        <button id="startBtn" class="neon-button">START GAME</button>
+                        <button id="backToMenuFromPongBtn" class="neon-button secondary">BACK TO MENU</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Selection Menu -->
+            <div id="gameSelection" class="game-selection">
+                <div class="selection-content">
+                    <div class="welcome-section">
+                        <h2 class="welcome-title">Welcome to</h2>
+                        <h1 class="welcome-main-title">NEON GAMES</h1>
+                        <p class="welcome-subtitle">Choose your challenge</p>
+                    </div>
+                    <div class="game-grid">
+                        <a class="game-card" data-game="pong" tabindex="0">
+                            <div class="game-card-icon">🏓</div>
+                            <h3 class="game-card-title">PONG</h3>
+                            <p class="game-card-description">Classic paddle and ball action</p>
+                            <div class="game-card-stats">
+                                <span class="stat-badge">Arcade</span>
+                                <span class="stat-badge">Skill</span>
+                            </div>
+                        </a>
+                        <a class="game-card" data-game="clickSpeed" tabindex="0">
+                            <div class="game-card-icon">⚡</div>
+                            <h3 class="game-card-title">CLICK SPEED</h3>
+                            <p class="game-card-description">Test your clicking speed</p>
+                            <div class="game-card-stats">
+                                <span class="stat-badge">Speed</span>
+                                <span class="stat-badge">Endurance</span>
+                            </div>
+                        </a>
+                        <a class="game-card" data-game="reactionTime" tabindex="0">
+                            <div class="game-card-icon">🎯</div>
+                            <h3 class="game-card-title">REACTION TIME</h3>
+                            <p class="game-card-description">Test your reflexes</p>
+                            <div class="game-card-stats">
+                                <span class="stat-badge">Reflexes</span>
+                                <span class="stat-badge">Timing</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="footer-info">
+                        <p class="footer-text">Challenge yourself and beat your high scores!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Click Speed Test Game -->
+            <div id="clickSpeedGame" class="click-speed-game">
+                <div class="click-speed-content">
+                    <div class="click-speed-header">
+                        <h2 class="click-speed-title">CLICK SPEED TEST</h2>
+                        <div class="click-speed-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">TIME</span>
+                                <span id="clickTimer" class="stat-value">10</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">CLICKS</span>
+                                <span id="clickCount" class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="click-area">
+                        <button id="clickButton" class="click-button">
+                            <span class="click-text">CLICK ME!</span>
+                        </button>
+                    </div>
+                    
+                    <div class="click-speed-results" id="clickResults">
+                        <h3 class="results-title">RESULTS</h3>
+                        <div class="results-stats">
+                            <div class="result-item">
+                                <span class="result-label">Final Score:</span>
+                                <span id="finalClickScore" class="result-value">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">High Score:</span>
+                                <span id="clickHighScore" class="result-value">0</span>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button id="playAgainBtn" class="neon-button">PLAY AGAIN</button>
+                            <button id="backToMenuFromClickSpeedBtn" class="neon-button secondary">BACK TO MENU</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reaction Time Test Game -->
+            <div id="reactionTimeGame" class="reaction-time-game">
+                <div class="reaction-time-container">
+                    <!-- Game Header -->
+                    <div class="reaction-time-header">
+                        <h2 class="reaction-time-title">REACTION TIME TEST</h2>
+                        <div class="reaction-time-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">BEST</span>
+                                <span id="reactionBestTime" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">LAST</span>
+                                <span id="reactionLastTime" class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Test Area -->
+                    <div class="reaction-test-area">
+                        <div id="reactionScreen" class="reaction-screen">
+                            <div id="reactionMessage" class="reaction-message">Click START to begin</div>
+                            <button id="reactionStartBtn" class="neon-button">START</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="reaction-results" id="reactionResults">
+                        <h3 class="results-title">RESULTS</h3>
+                        <div class="results-stats">
+                            <div class="result-item">
+                                <span class="result-label">Reaction Time:</span>
+                                <span id="reactionTimeResult" class="result-value">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Best Time:</span>
+                                <span id="reactionBestTimeResult" class="result-value">0</span>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button id="reactionPlayAgainBtn" class="neon-button">TRY AGAIN</button>
+                            <button id="backToMenuFromReactionBtn" class="neon-button secondary">BACK TO MENU</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
