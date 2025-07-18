@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fyrnac Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="glow-title">Fyrnac Converter</h1>
+    <div class="converter-card">
+      <div class="direction-toggle">
+        <button id="toggle-direction" class="toggle-btn active">English → Fyrnac</button>
+        <button id="toggle-reverse" class="toggle-btn">Fyrnac → English</button>
+      </div>
+      <div class="converter-content">
+        <textarea id="english-input" placeholder="Type English text here..."></textarea>
+        <div class="output-section">
+          <div id="fyrnac-output" class="fyrnac-box" readonly></div>
+          <div class="button-group">
+            <button id="copy-btn">Copy Output</button>
+            <button id="clear-btn">Clear All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="common-words-section">
+      <h3 class="glow-subtitle">Common Words</h3>
+      <div class="word-buttons">
+        <button class="word-btn" data-word="Hello there">Hello there</button>
+        <button class="word-btn" data-word="Good morning">Good morning</button>
+        <button class="word-btn" data-word="How are you">How are you</button>
+        <button class="word-btn" data-word="I am fine">I am fine</button>
+        <button class="word-btn" data-word="Thank you">Thank you</button>
+        <button class="word-btn" data-word="You are welcome">You are welcome</button>
+        <button class="word-btn" data-word="See you later">See you later</button>
+        <button class="word-btn" data-word="Have a good day">Have a good day</button>
+        <button class="word-btn" data-word="What is this">What is this</button>
+        <button class="word-btn" data-word="Where are we">Where are we</button>
+        <button class="word-btn" data-word="I do not know">I do not know</button>
+        <button class="word-btn" data-word="That is correct">That is correct</button>
+        <button class="word-btn" data-word="I understand">I understand</button>
+        <button class="word-btn" data-word="Please help me">Please help me</button>
+        <button class="word-btn" data-word="Can you help">Can you help</button>
+        <button class="word-btn" data-word="I will try">I will try</button>
+        <button class="word-btn" data-word="That is great">That is great</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
